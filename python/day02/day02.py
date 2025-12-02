@@ -24,15 +24,22 @@ def main():
 
     regex1 = re.compile(r"^(\w+)\1{1}$")
     regex2 = re.compile(r"^(\w+)\1+$")
-    rangesList = [
-        range(int(x[0]), int(x[1]) + 1)
-        for x in (x.split("-") for x in lines[0].split(","))
-    ]
-    idList = list(chain(*list(map(str, i) for i in rangesList)))
+
+    idList = list(
+        chain(
+            *list(
+                map(str, i)
+                for i in (
+                    range(int(x[0]), int(x[1]) + 1)
+                    for x in (x.split("-") for x in lines[0].split(","))
+                )
+            )
+        )
+    )
 
     part1 = sum(map(int, [i for i in idList if regex1.match(i)]))
     part2 = sum(map(int, [i for i in idList if regex2.match(i)]))
-    
+
     # output
     duration = int((time.time() - start_time) * 1000000)
     header = "#" * 20
