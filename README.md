@@ -5,7 +5,7 @@
 # Advent of Code 2025
 
 This repo contains the 2025 [Advent Of Code 2025](https://adventofcode.com/2025) solutions.
-Still not finished
+Still not finished yes
 
 ## Problems
 
